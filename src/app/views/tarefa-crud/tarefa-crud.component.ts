@@ -66,7 +66,6 @@ export class TarefaCrudComponent implements OnInit {
     })
     this.arr_events = arrFormatEnventData;
     this.calendarOptions.events = arrFormatEnventData;
-    console.log(this.calendarOptions.events)
   }
 
   formatarDataTarefa(intWeekDay, tarefa: Tarefa): { title: string, date: string }[] {
