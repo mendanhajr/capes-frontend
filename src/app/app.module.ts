@@ -30,7 +30,8 @@ import interactionPlugin from '@fullcalendar/interaction';
 import { TarefaListComponent } from './views/tarefa-list/tarefa-list.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSortModule } from '@angular/material/sort'; // a plugin
+import { MatSortModule } from '@angular/material/sort';
+import { TarefaUpdateComponent } from './components/tarefa/tarefa-update/tarefa-update.component'; // a plugin
 
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
@@ -47,7 +48,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     HomeComponent,
     TarefaCrudComponent,
     RedDirective,
-    TarefaListComponent
+    TarefaListComponent,
+    TarefaUpdateComponent
   ],
   imports: [
     BrowserModule,

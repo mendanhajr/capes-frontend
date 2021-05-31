@@ -1,9 +1,6 @@
 <mat-card-title class="title">
-  Tarefas de usuário
+  Atualizar Tarefas de usuário
 </mat-card-title>
-<mat-card-subtitle class="subtitle">
-  Crie e atribua tarefas aos usuários.
-</mat-card-subtitle>
 <mat-card class="mat-elevation-z3 card-form">
   <form>
     <mat-form-field>
@@ -17,7 +14,7 @@
     <!--projetos-->
     <mat-form-field>
       <mat-label>Projeto</mat-label>
-      <mat-select (selectionChange)="onChangeProjeto($event)">
+      <mat-select (selectionChange)="onChangeProjeto($event)" [(value)]="tarefa.projeto_id">
         <mat-option *ngFor="let projeto of projetosSelect" [value]="projeto.value">
           {{projeto.viewValue}}
         </mat-option>
@@ -27,7 +24,7 @@
     <!--prioridades-->
     <mat-form-field>
       <mat-label>Prioridade</mat-label>
-      <mat-select (selectionChange)="onChangePrioridade($event)">
+      <mat-select (selectionChange)="onChangePrioridade($event)" [(value)]="tarefa.prioridade_id">
         <mat-option *ngFor="let prioridade of prioridadesSelect" [value]="prioridade.value">
           {{prioridade.viewValue}}
         </mat-option>
@@ -37,7 +34,7 @@
     <!--prioridades-->
     <mat-form-field>
       <mat-label>Responsável</mat-label>
-      <mat-select (selectionChange)="onChangeUsuario($event)">
+      <mat-select (selectionChange)="onChangeUsuario($event)" [(value)]="tarefa.usuario_id">
         <mat-option *ngFor="let usuario of usuariosSelect" [value]="usuario.value">
           {{usuario.viewValue}}
         </mat-option>
@@ -61,33 +58,38 @@
         e domingo
       </mat-chip>
       <mat-chip [selected]="tarefa.periodo === 'F'" (click)="onChangePeriodo('F')" value="F" class="hand-pointer">
-        Domingos
+        Domingo
       </mat-chip>
       <mat-chip [selected]="tarefa.periodo === 'G'" (click)="onChangePeriodo('G')" value="G" class="hand-pointer">
-        Segundas
+        Segunda
       </mat-chip>
       <mat-chip [selected]="tarefa.periodo === 'H'" (click)="onChangePeriodo('H')" value="H" class="hand-pointer">
-        Terças
+        Terça
       </mat-chip>
       <mat-chip [selected]="tarefa.periodo === 'I'" (click)="onChangePeriodo('I')" value="I" class="hand-pointer">
-        Quartas
+        Quarta
       </mat-chip>
       <mat-chip [selected]="tarefa.periodo === 'J'" (click)="onChangePeriodo('J')" value="J" class="hand-pointer">
-        Quintas
+        Quinta
       </mat-chip>
       <mat-chip [selected]="tarefa.periodo === 'L'" (click)="onChangePeriodo('L')" value="L" class="hand-pointer">
-        Sextas
+        Sexta
       </mat-chip>
       <mat-chip [selected]="tarefa.periodo === 'M'" (click)="onChangePeriodo('M')" value="M" class="hand-pointer">
-        Sábados
+        Sábado
       </mat-chip>
     </mat-chip-list>
   </form>
   <mat-divider class="divider"></mat-divider>
   <div style="display: flex; flex-direction: row; justify-content: flex-end">
     <div>
-      <button mat-raised-button (click)="createTarefa()" color="primary" id="btn_salvar">
-        Salvar
+      <button mat-raised-button (click)="cancel()" color="secondary" id="btn_cancelar">
+        Cancelar
+      </button>
+    </div>
+    <div>
+      <button mat-raised-button (click)="atualizarTarefa()" color="primary" id="btn_salvar">
+        Atualizar
       </button>
     </div>
   </div>
